@@ -4,6 +4,7 @@ exports.createEvent = async (req, res) => {
     try {
         const event = new Event({ ...req.body, userId: req.user.id });
         await event.save();
+        console.log("Check for lab task");
         res.status(201).json(event);
     } catch (err) {
         res.status(400).json({ error: err.message });
